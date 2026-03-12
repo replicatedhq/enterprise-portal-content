@@ -19,7 +19,6 @@ navigation:
         visible_when:
           entitlements:
             - isHelmInstallEnabled
-
   - title: Operations
     icon: wrench
     items:
