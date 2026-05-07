@@ -17,6 +17,14 @@ See the [system requirements documentation](requirements) for the full list of p
 - 4 CPUs, 8GB RAM, 40GB disk minimum
 - Root or sudo access
 
+## Choose an installation
+
+<PendingInstallSelector method="linux" />
+
+<NewInstall method="linux" />
+
+<InstanceName method="linux" />
+
 ## Configuration
 
 Customize the options below. The install commands will update automatically based on your selections.
@@ -31,6 +39,10 @@ The install command must be run as root or with sudo. Running without elevated p
 </Warning>
 
 SSH into your target machine and run the following command.
+
+<Note>
+The commands below are personalized to your selected installation. If you switch installations or rename your instance, the commands will update automatically.
+</Note>
 
 <LinuxInstallAssets />
 
@@ -49,8 +61,6 @@ kubectl get pods -A
 # Access the admin console
 echo "Admin Console: https://$(hostname):8800"
 </CommandBlock>
-
-<InstanceName />
 
 ## Post-Install
 

@@ -1,0 +1,29 @@
+# theme.yaml — Branding and contact configuration for this Enterprise Portal.
+#
+# Uncomment and fill in any fields you want to customize. Anything left
+# commented uses the platform default. See the Replicated docs for the full
+# field reference.
+
+branding:
+  # Portal branding
+  # title: "Your Portal Name"
+  # primaryColor: "#4f46e5"
+  # logo: assets/logo.png
+  # favicon: assets/favicon.ico
+
+  # Support contact info — shown on the Contact Support page (via the
+  # <ContactInfo /> component) and on support bundle pages.
+  # contact: "support@yourcompany.com"
+  # supportPortalLink: "https://support.yourcompany.com"
+
+  # Login page footer. Customize or remove these to brand your login page.
+  # Warning: removing the login footer without a custom domain may cause
+  # your portal to be flagged by Google Safe Browsing.
+  # loginFooterText: "Secured by Enterprise Portal"
+  # loginFooterLinks:
+  #   - label: Privacy
+  #     url: https://enterpriseportal.app/privacy
+  #   - label: Terms
+  #     url: https://enterpriseportal.app/terms
+  #   - label: Contact
+  #     url: https://enterpriseportal.app/contact

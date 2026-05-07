@@ -19,28 +19,23 @@ navigation:
         visible_when:
           entitlements:
             - isHelmInstallEnabled
-  - title: Operations
-    icon: wrench
-    items:
-      - title: Security
-        page: pages/operations/security.md
-        visible_when:
-          permissions:
-            - canViewSecurity
-      - title: Support Bundles
-        page: pages/operations/bundles/bundles.md
-      - title: Upload Bundles
-        page: pages/operations/bundles/uploaded.md
 
   - title: Updates
     icon: refresh-cw
-    items:
-      - title: Checking for Updates
-        page: pages/updates/checking.md
+    page: pages/updates/instances.md
+
+  - title: Security
+    icon: shield
+    page: pages/security.md
+    visible_when:
+      permissions:
+        - canViewSecurity
 
   - title: Support
     icon: life-buoy
     items:
+      - title: Support Bundles
+        page: pages/support/bundles.md
       - title: FAQ
         page: pages/support/faq.md
       - title: Contact Support

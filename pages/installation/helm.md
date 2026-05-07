@@ -22,6 +22,14 @@ Review the following prerequisites before installing.
 Run `kubectl get sc` to confirm a default StorageClass is available. If no default is set, the installation will fail when creating persistent volume claims.
 </Tip>
 
+## Choose an installation
+
+<PendingInstallSelector method="helm" />
+
+<NewInstall method="helm" />
+
+<InstanceName method="helm" />
+
 ## Configuration
 
 Customize the options below. The install commands will update automatically based on your selections.
@@ -33,9 +41,11 @@ Customize the options below. The install commands will update automatically base
 
 ## Install
 
-<HelmInstallAssets />
+<Note>
+The commands below are personalized to your selected installation. If you switch installations or rename your instance, the commands will update automatically.
+</Note>
 
-<InstanceName />
+<HelmInstallAssets />
 
 ## Post-Install
 
