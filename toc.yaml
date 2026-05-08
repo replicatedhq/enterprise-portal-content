@@ -28,8 +28,8 @@ navigation:
     icon: shield
     page: pages/security.md
     visible_when:
-      permissions:
-        - canViewSecurity
+      entitlements:
+        - isSecurityCenterEnabled
 
   - title: Support
     icon: life-buoy
