@@ -1,8 +1,8 @@
 ---
 title: Security
 visible_when:
-  permissions:
-    - canViewSecurity
+  entitlements:
+    - isSecurityCenterEnabled
 ---
 
 # Security
