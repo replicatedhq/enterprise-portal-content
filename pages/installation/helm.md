@@ -50,7 +50,7 @@ The commands below are personalized to your selected installation. If you switch
 ## Post-Install
 
 <Note>
-After installation, verify that all pods are running with `kubectl get pods -n <namespace>` before proceeding to post-installation configuration.
+After installation, verify that all pods are running with `kubectl get pods` before proceeding to post-installation configuration.
 </Note>
 
 See the post-installation documentation for next steps including configuring TLS, setting up backups, and connecting to your identity provider.
