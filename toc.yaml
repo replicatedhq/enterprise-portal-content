@@ -1,4 +1,12 @@
 navigation:
+  - title: Automation
+    icon: terminal
+    items:
+      - title: API Reference
+        page: pages/automation/api-reference.md
+      - title: Workflow Guide
+        page: pages/automation/workflow-guide.md
+
   - title: Installation
     icon: rocket
     items:
