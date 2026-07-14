@@ -1,11 +1,11 @@
 ---
-title: Helm Installation
+title: Existing Cluster (Helm)
 visible_when:
   entitlements:
     - isHelmInstallEnabled
 ---
 
-# Helm Installation
+# Existing Cluster (Helm)
 
 Install your application on a Kubernetes cluster using Helm charts. Read the docs or select your deployment preferences.
 

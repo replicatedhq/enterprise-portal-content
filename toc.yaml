@@ -17,16 +17,28 @@ navigation:
             - isEmbeddedClusterDownloadEnabled
       - title: Release History
         page: pages/installation/release-history.md
-      - title: Linux
+      - title: Linux (Embedded Cluster)
         page: pages/installation/linux.md
         visible_when:
           entitlements:
             - isEmbeddedClusterDownloadEnabled
-      - title: Helm
+      - title: Linux (kURL)
+        page: pages/installation/kurl.md
+        visible_when:
+          entitlements:
+            - isKurlInstallEnabled
+            - isAirgapSupported
+      - title: Existing Cluster (Helm)
         page: pages/installation/helm.md
         visible_when:
           entitlements:
             - isHelmInstallEnabled
+      - title: Existing Cluster (KOTS)
+        page: pages/installation/kots.md
+        visible_when:
+          entitlements:
+            - isKotsInstallEnabled
+            - isAirgapSupported
 
   - title: Updates
     icon: refresh-cw

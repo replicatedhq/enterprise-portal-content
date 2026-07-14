@@ -1,11 +1,11 @@
 ---
-title: Linux Installation
+title: Linux (Embedded Cluster)
 visible_when:
   entitlements:
     - isEmbeddedClusterDownloadEnabled
 ---
 
-# Linux Installation
+# Linux (Embedded Cluster)
 
 Install your application on a Linux server using Embedded Cluster. Read the docs or select your deployment preferences.
 
