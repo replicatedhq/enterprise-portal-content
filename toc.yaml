@@ -37,7 +37,7 @@ navigation:
     page: pages/security.md
     visible_when:
       entitlements:
-        - isSecurityCenterEnabled
+        - canViewSecurity
 
   - title: Support
     icon: life-buoy

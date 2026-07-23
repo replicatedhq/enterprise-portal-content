@@ -2,9 +2,15 @@
 title: Security
 visible_when:
   entitlements:
-    - isSecurityCenterEnabled
+    - canViewSecurity
 ---
 
 # Security
 
-View vulnerability scanning and security reports for your releases.
+Review vulnerability reports and software bill of materials for your current release.
+
+<SecurityVersionSelector />
+
+<CVEReport />
+
+<SBOMReport />
