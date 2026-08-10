@@ -28,12 +28,9 @@ Start with the Installation Guide for your deployment method. The configuration 
 
 Use the sidebar navigation on the left to explore available documentation sections. We recommend starting with:
 
-{{#if entitlements.isEmbeddedClusterDownloadEnabled}}
-1. **Installation Requirements** — Review system requirements and prerequisites for Embedded Cluster installations
-{{/if}}
-2. **Installation Guide** — Follow step-by-step installation instructions for your deployment method
-3. **Updates** — Check for and manage application updates
-4. **Support Bundles** — Generate diagnostic bundles for troubleshooting
+1. **Installation Guide** — Follow step-by-step installation instructions for your deployment method
+2. **Instances & Updates** — Review deployed instances and manage application updates
+3. **Support Bundles** — Generate diagnostic bundles for troubleshooting
 
 ## Quick Links
 
@@ -41,7 +38,6 @@ Use the sidebar navigation on the left to explore available documentation sectio
 <Option value="Linux">
 
 {{#if entitlements.isEmbeddedClusterDownloadEnabled}}
-- [Installation Requirements](installation/requirements)
 - [Linux Installation](installation/linux)
 {{/if}}
 - [Release History](installation/release-history)

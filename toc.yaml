@@ -1,20 +1,6 @@
 navigation:
-  - title: Automation
-    icon: terminal
-    items:
-      - title: API Reference
-        page: pages/automation/api-reference.md
-      - title: Workflow Guide
-        page: pages/automation/workflow-guide.md
-
   - title: Installation
-    icon: rocket
     items:
-      - title: Requirements
-        page: pages/installation/requirements.md
-        visible_when:
-          entitlements:
-            - isEmbeddedClusterDownloadEnabled
       - title: Release History
         page: pages/installation/release-history.md
       - title: Linux (Embedded Cluster)
@@ -40,19 +26,16 @@ navigation:
             - isKotsInstallEnabled
             - isAirgapSupported
 
-  - title: Updates
-    icon: refresh-cw
+  - title: Instances & Updates
     page: pages/updates/instances.md
 
   - title: Security
-    icon: shield
     page: pages/security.md
     visible_when:
       entitlements:
         - canViewSecurity
 
   - title: Support
-    icon: life-buoy
     items:
       - title: Support Bundles
         page: pages/support/bundles.md
@@ -60,6 +43,13 @@ navigation:
         page: pages/support/faq.md
       - title: Contact Support
         page: pages/support/contact.md
+
+  - title: Automation
+    items:
+      - title: API Reference
+        page: pages/automation/api-reference.md
+      - title: Workflow Guide
+        page: pages/automation/workflow-guide.md
 
 overrides:
   home: pages/home.md

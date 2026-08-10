@@ -1,7 +1,9 @@
+---
+title: Instances & Updates
+---
+
 # Instances & Updates
 
-View your deployed instances and check for available updates. Click an instance with an available update to see upgrade instructions inline.
-
-The latest available release is **{{release.version}}**.
+Review deployed instances and upgrade them to the latest release, currently **{{release.version}}**. Click an instance with an available update to see upgrade instructions inline.
 
 <InstancesAndUpdates />

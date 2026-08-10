@@ -11,7 +11,7 @@ Install your application on a Linux server using Embedded Cluster. Read the docs
 
 ## Requirements
 
-See the [system requirements documentation](requirements) for the full list of prerequisites. At minimum:
+Confirm the target host meets these prerequisites before installing:
 
 - Ubuntu 20.04+ / RHEL 8+ / CentOS 8+
 - 4 CPUs, 8GB RAM, 40GB disk minimum

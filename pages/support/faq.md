@@ -6,14 +6,6 @@ title: Frequently Asked Questions
 
 ## General
 
-{{#if entitlements.isEmbeddedClusterDownloadEnabled}}
-<Accordion title="What are the system requirements?">
-
-See [Requirements](../installation/requirements) for details.
-
-</Accordion>
-{{/if}}
-
 <Accordion title="How do I check for updates?">
 
 See [Instances & Updates](../updates/instances).
