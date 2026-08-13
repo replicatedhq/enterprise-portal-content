@@ -57,3 +57,57 @@ These affect the template only. Adopt them if you follow the default content; ig
 - **The Requirements page is gone.** `pages/installation/requirements.md` has been removed and its prerequisites now sit directly on the Embedded Cluster installation page, where customers act on them. Inbound links from `pages/home.md`, `pages/support/faq.md`, and `pages/installation/linux.md` were removed with it. If you have customized that page, keep it.
 - **Automation moved to the end of the sidebar.** It is a reference section, not a starting point.
 - **Upload now comes before history on the support bundle page.** `Upload an Existing Bundle` precedes `Uploaded Bundles`, so uploading comes before the list of past uploads.
+
+## Apply this update to your repo
+
+Vendor content repos are **cloned** from the Enterprise Portal template — they are not forks — so a plain `git pull` or `git merge` from the template will not work. Add the template as an upstream remote, fetch its changes, and adopt selectively.
+
+### 1. Set up the upstream remote (one-time)
+
+Run this once per content repo. If `upstream` already exists, skip to step 2.
+
+```shell
+git remote add upstream https://github.com/replicatedhq/enterprise-portal-content.git
+```
+
+### 2. Fetch the latest template changes
+
+```shell
+git fetch upstream
+```
+
+### 3. Adopt the content changes
+
+This update touches several files. Adopt them selectively based on your fork's customizations.
+
+**Safe to copy from upstream** — these changes are straightforward and do not risk overwriting important customizations:
+
+```shell
+git checkout upstream/main -- pages/support/bundles.md pages/support/faq.md pages/updates/instances.md
+```
+
+**Review before copying** — these files are likely customized in vendor repos:
+
+- **`pages/installation/linux.md`** — Inbound links to the removed `requirements.md` page were deleted from this file. Check whether your fork still references `requirements.md`. If so, remove those links or update them to point to the prerequisites on the Embedded Cluster installation page.
+- **`pages/home.md`** — Inbound links to `requirements.md` were removed. If your fork's home page still links to it, update those links.
+- **`toc.yaml`** — The Automation section was moved to the end of the sidebar, and sidebar icons are now opt-in. Compare your file to upstream and decide which changes to keep:
+  ```shell
+  git diff HEAD upstream/main -- toc.yaml
+  ```
+  Merge the relevant changes manually rather than overwriting the file wholesale.
+
+**A file was removed:** `pages/installation/requirements.md` has been deleted from the template. If your fork still carries that file, review whether it is still needed and remove it if so.
+
+### 4. Review, preview, commit, and push
+
+Inspect the changes, run a local preview, then commit and push:
+
+```shell
+git diff
+replicated enterprise-portal preview . --app <your-app-slug>
+git add pages/support/bundles.md pages/support/faq.md pages/updates/instances.md
+git commit -m "Adopt Enterprise Portal template update: support bundle headings and sidebar icons"
+git push
+```
+
+> **Note:** Replace `<your-app-slug>` with your app's slug. You can find your app's preview command in Enterprise Portal > Content > Preview.

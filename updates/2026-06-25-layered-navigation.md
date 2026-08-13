@@ -47,3 +47,47 @@ navigation:
 ## Recommended adoption
 
 Review your `toc.yaml` and group pages that naturally belong together, such as advanced install options, configuration references, troubleshooting pages, or product-specific guides. Keep high-traffic pages near the top of each section so the first level of the sidebar remains easy to scan.
+
+## Apply this update to your repo
+
+Vendor content repos are **cloned** from the Enterprise Portal template — they are not forks — so a plain `git pull` or `git merge` from the template will not work. The correct approach is to add the template as an upstream remote, fetch its changes, and then review what differs.
+
+### 1. Set up the upstream remote (one-time)
+
+Run this once per content repo. If `upstream` already exists, skip to step 2.
+
+```shell
+git remote add upstream https://github.com/replicatedhq/enterprise-portal-content.git
+```
+
+### 2. Fetch the latest template changes
+
+```shell
+git fetch upstream
+```
+
+### 3. Compare your table of contents
+
+This update introduces nested `items` in `toc.yaml`. The template does not add new pages, but reviewing the upstream `toc.yaml` helps you spot natural groupings:
+
+```shell
+git diff HEAD upstream/main -- toc.yaml
+```
+
+### 4. Edit your table of contents
+
+Open your local `toc.yaml` and introduce nested `items` where pages belong together. Use the YAML example from this guide as a reference for the syntax. This is a manual edit — do not blindly check out `toc.yaml` from upstream, as it will overwrite your custom navigation.
+
+### 5. Review, preview, commit, and push
+
+Inspect the changes, run a local preview, then commit and push:
+
+```shell
+git diff
+git add toc.yaml
+replicated enterprise-portal preview . --app <your-app-slug>
+git commit -m "Adopt Enterprise Portal template update: layered navigation"
+git push
+```
+
+> **Note:** Replace `<your-app-slug>` with your app's slug. You can find your app's preview command in Enterprise Portal > Content > Preview.

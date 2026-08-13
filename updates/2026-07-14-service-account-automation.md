@@ -39,3 +39,63 @@ Adopt it when customers use service accounts for install automation, or skip it 
 
 If you adopt the pages, review the generated API reference description and the workflow guide copy in your portal preview.
 Adjust the page titles or surrounding text so the pages use your customer's terminology, such as how your docs describe service accounts, install profiles, and automation.
+
+## Apply this update to your repo
+
+Vendor content repos are **cloned** from the Enterprise Portal template — they are not forks — so a plain `git pull` or `git merge` from the template will not work. The correct approach is to add the template as an upstream remote, fetch its changes, and then copy only the files you need.
+
+### 1. Set up the upstream remote (one-time)
+
+Run this once per content repo. If `upstream` already exists, skip to step 2.
+
+```shell
+git remote add upstream https://github.com/replicatedhq/enterprise-portal-content.git
+```
+
+### 2. Fetch the latest template changes
+
+```shell
+git fetch upstream
+```
+
+### 3. Copy the new page files
+
+This update adds two pages. Copy them from upstream into your repo:
+
+```shell
+git checkout upstream/main -- pages/automation/api-reference.md pages/automation/workflow-guide.md
+```
+
+### 4. Add the Automation section to your table of contents
+
+The template adds an Automation group to `toc.yaml`. Because your `toc.yaml` is likely customized, add the block manually rather than overwriting the file:
+
+```yaml
+- title: Automation
+  icon: terminal
+  items:
+    - title: API Reference
+      page: pages/automation/api-reference.md
+    - title: Workflow Guide
+      page: pages/automation/workflow-guide.md
+```
+
+If your `toc.yaml` is still close to the template and you are comfortable replacing it, you may copy the entire file from upstream instead:
+
+```shell
+git checkout upstream/main -- toc.yaml
+```
+
+### 5. Review, preview, commit, and push
+
+Inspect the changes, run a local preview, then commit and push:
+
+```shell
+git diff
+replicated enterprise-portal preview . --app <your-app-slug>
+git add pages/automation/api-reference.md pages/automation/workflow-guide.md toc.yaml
+git commit -m "Adopt Enterprise Portal template update: service account automation"
+git push
+```
+
+> **Note:** Replace `<your-app-slug>` with your app's slug. You can find your app's preview command in Enterprise Portal > Content > Preview.
