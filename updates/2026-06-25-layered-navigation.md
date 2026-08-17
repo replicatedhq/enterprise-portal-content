@@ -83,9 +83,9 @@ Open your local `toc.yaml` and introduce nested `items` where pages belong toget
 Inspect the changes, run a local preview, then commit and push:
 
 ```shell
-git diff
-git add toc.yaml
+git diff HEAD
 replicated enterprise-portal preview . --app <your-app-slug>
+git add toc.yaml
 git commit -m "Adopt Enterprise Portal template update: layered navigation"
 git push
 ```

@@ -80,7 +80,7 @@ git fetch upstream
 
 This update touches several files. Adopt them selectively based on your fork's customizations.
 
-**Safe to copy from upstream** — these changes are straightforward and do not risk overwriting important customizations:
+**Lower-risk to copy from upstream** — if these files are still close to the template, you can copy them directly and then review the diff:
 
 ```shell
 git checkout upstream/main -- pages/support/bundles.md pages/support/faq.md pages/updates/instances.md
@@ -100,12 +100,25 @@ git checkout upstream/main -- pages/support/bundles.md pages/support/faq.md page
 
 ### 4. Review, preview, commit, and push
 
-Inspect the changes, run a local preview, then commit and push:
+Inspect the changes, run a local preview, then stage the files you adopted. Adjust the file list if you skipped or moved any of these template files:
 
 ```shell
-git diff
+git diff HEAD
 replicated enterprise-portal preview . --app <your-app-slug>
 git add pages/support/bundles.md pages/support/faq.md pages/updates/instances.md
+git add pages/installation/linux.md pages/home.md toc.yaml
+git status --short
+```
+
+If you remove the Requirements page, stage that deletion too before committing:
+
+```shell
+git rm pages/installation/requirements.md
+```
+
+Then commit and push:
+
+```shell
 git commit -m "Adopt Enterprise Portal template update: support bundle headings and sidebar icons"
 git push
 ```

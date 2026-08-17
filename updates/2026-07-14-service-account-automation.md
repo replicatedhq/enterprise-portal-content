@@ -91,7 +91,7 @@ git checkout upstream/main -- toc.yaml
 Inspect the changes, run a local preview, then commit and push:
 
 ```shell
-git diff
+git diff HEAD
 replicated enterprise-portal preview . --app <your-app-slug>
 git add pages/automation/api-reference.md pages/automation/workflow-guide.md toc.yaml
 git commit -m "Adopt Enterprise Portal template update: service account automation"
