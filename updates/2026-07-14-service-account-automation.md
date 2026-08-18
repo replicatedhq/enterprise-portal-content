@@ -42,7 +42,7 @@ Adjust the page titles or surrounding text so the pages use your customer's term
 
 ## Apply this update to your repo
 
-Vendor content repos are **cloned** from the Enterprise Portal template — they are not forks — so a plain `git pull` or `git merge` from the template will not work. The correct approach is to add the template as an upstream remote, fetch its changes, and then copy only the files you need.
+Your content repo was created from the Enterprise Portal template repository, not forked from it. A repo created from a template starts with its own commit history rather than a copy of the template's, so a plain `git pull` or `git merge` from the template will not work. The correct approach is to add the template as an upstream remote, fetch its changes, and then copy only the files you need.
 
 ### 1. Set up the upstream remote (one-time)
 
@@ -58,32 +58,34 @@ git remote add upstream https://github.com/replicatedhq/enterprise-portal-conten
 git fetch upstream
 ```
 
+The commands below use this update's template commit, `a2f64d0afbe3ae1a70a4e7a259873a7a5039ff04`, so later template changes are not pulled in accidentally.
+
 ### 3. Copy the new page files
 
 This update adds two pages. Copy them from upstream into your repo:
 
 ```shell
-git checkout upstream/main -- pages/automation/api-reference.md pages/automation/workflow-guide.md
+git checkout a2f64d0afbe3ae1a70a4e7a259873a7a5039ff04 -- pages/automation/api-reference.md pages/automation/workflow-guide.md
+```
+
+If the checkout overwrites a file you want to keep, restore it before committing:
+
+```shell
+git restore --source=HEAD --staged --worktree -- pages/automation/api-reference.md pages/automation/workflow-guide.md
 ```
 
 ### 4. Add the Automation section to your table of contents
 
-The template adds an Automation group to `toc.yaml`. Because your `toc.yaml` is likely customized, add the block manually rather than overwriting the file:
+The template adds an Automation group to `toc.yaml`. Because your `toc.yaml` is likely customized, add the block manually under `navigation:` rather than overwriting the file:
 
 ```yaml
-- title: Automation
-  icon: terminal
-  items:
-    - title: API Reference
-      page: pages/automation/api-reference.md
-    - title: Workflow Guide
-      page: pages/automation/workflow-guide.md
-```
-
-If your `toc.yaml` is still close to the template and you are comfortable replacing it, you may copy the entire file from upstream instead:
-
-```shell
-git checkout upstream/main -- toc.yaml
+  - title: Automation
+    icon: terminal
+    items:
+      - title: API Reference
+        page: pages/automation/api-reference.md
+      - title: Workflow Guide
+        page: pages/automation/workflow-guide.md
 ```
 
 ### 5. Review, preview, commit, and push
@@ -99,3 +101,5 @@ git push
 ```
 
 > **Note:** Replace `<your-app-slug>` with your app's slug. You can find your app's preview command in Enterprise Portal > Content > Preview.
+>
+> If you maintain version branches, apply and push this update on each branch where customers should see it.

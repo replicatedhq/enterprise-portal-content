@@ -47,12 +47,14 @@ git remote add upstream https://github.com/replicatedhq/enterprise-portal-conten
 git fetch upstream
 ```
 
+The commands below use this update's template commit, `491625dc76b9c661b7a73cb638018c19ddcacfbc`, so later template changes are not pulled in accidentally.
+
 ### 3. Compare your support bundle page
 
 This update touches one file, `pages/support/bundles.md`. No pages were added or removed, and `toc.yaml` is unchanged.
 
 ```shell
-git diff HEAD upstream/main -- pages/support/bundles.md
+git diff HEAD 491625dc76b9c661b7a73cb638018c19ddcacfbc -- pages/support/bundles.md
 ```
 
 ### 4. Take the new page
@@ -60,7 +62,13 @@ git diff HEAD upstream/main -- pages/support/bundles.md
 If the diff in step 3 shows nothing you want to keep, take the template's version of the page:
 
 ```shell
-git checkout upstream/main -- pages/support/bundles.md
+git checkout 491625dc76b9c661b7a73cb638018c19ddcacfbc -- pages/support/bundles.md
+```
+
+If the checkout overwrites a file you want to keep, restore it before committing:
+
+```shell
+git checkout HEAD -- pages/support/bundles.md
 ```
 
 This is the recommended route. Everything on this page other than the tab titles, the tip at the top, and the section headings is a component tag, so for most repos the template's version is simply the page you want.
@@ -84,3 +92,5 @@ git push
 ```
 
 > **Note:** Replace `<your-app-slug>` with your app's slug. You can find your app's preview command in Enterprise Portal > Content > Preview.
+>
+> If you maintain version branches, apply and push this update on each branch where customers should see it.
