@@ -60,6 +60,14 @@ git fetch upstream
 
 The commands below use this update's template commit, `a2f64d0afbe3ae1a70a4e7a259873a7a5039ff04`, so later template changes are not pulled in accidentally.
 
+Before checking out template files, make sure you do not have uncommitted work in the target paths:
+
+```shell
+git status --short
+```
+
+Commit or stash any local changes before continuing. The restore command below returns files to `HEAD`; it cannot recover uncommitted edits overwritten by checkout.
+
 ### 3. Copy the new page files
 
 This update adds two pages. Copy them from upstream into your repo:
@@ -68,7 +76,7 @@ This update adds two pages. Copy them from upstream into your repo:
 git checkout a2f64d0afbe3ae1a70a4e7a259873a7a5039ff04 -- pages/automation/api-reference.md pages/automation/workflow-guide.md
 ```
 
-If the checkout overwrites a file you want to keep, restore it before committing:
+If you started from a clean worktree and decide not to keep the copied files, restore them before committing:
 
 ```shell
 git restore --source=HEAD --staged --worktree -- pages/automation/api-reference.md pages/automation/workflow-guide.md

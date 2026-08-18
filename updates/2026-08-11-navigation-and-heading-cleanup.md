@@ -78,6 +78,14 @@ git fetch upstream
 
 The commands below use this update's template commit, `f2b916cde77a760123a7895b67ac9b4145815fba`, so later template changes are not pulled in accidentally.
 
+Before checking out template files, make sure you do not have uncommitted work in the target paths:
+
+```shell
+git status --short
+```
+
+Commit or stash any local changes before continuing. The restore command below returns files to `HEAD`; it cannot recover uncommitted edits overwritten by checkout.
+
 ### 3. Adopt the content changes
 
 This update touches several files. Adopt them selectively based on your repo's customizations.
@@ -88,7 +96,7 @@ This update touches several files. Adopt them selectively based on your repo's c
 git checkout f2b916cde77a760123a7895b67ac9b4145815fba -- pages/support/bundles.md pages/updates/instances.md
 ```
 
-If the checkout overwrites a file you want to keep, restore it before committing:
+If you started from a clean worktree and decide not to keep the copied files, restore them before committing:
 
 ```shell
 git checkout HEAD -- pages/support/bundles.md pages/updates/instances.md
@@ -105,15 +113,14 @@ git checkout HEAD -- pages/support/bundles.md pages/updates/instances.md
   ```
   Merge the relevant changes manually rather than overwriting the file wholesale.
 
-**A file was removed:** `pages/installation/requirements.md` has been deleted from the template. If your content repo still carries that file, keep it if you still need it; otherwise remove it.
+**A file was removed:** `pages/installation/requirements.md` has been deleted from the template. The old Requirements page contained more detail than the short prerequisite list now shown on the Linux installation page. Before removing it, compare your page with `pages/installation/linux.md` and preserve any vendor-relevant details, such as port, disk, data directory, firewall, or filesystem requirements. Keep the page if you still need that detail; otherwise remove it.
 
 ### 4. Review, preview, commit, and push
 
-Inspect the changes, run a local preview, then stage the files you adopted. Adjust the file list if you skipped or moved any of these template files:
+Inspect the changes, then stage the files you adopted. Adjust the file list if you skipped or moved any of these template files:
 
 ```shell
 git diff HEAD
-replicated enterprise-portal preview . --app <your-app-slug>
 git add pages/support/bundles.md pages/support/faq.md pages/updates/instances.md
 git add pages/installation/linux.md pages/home.md toc.yaml
 git status --short
@@ -125,9 +132,10 @@ If you remove the Requirements page, stage that deletion too before committing:
 git rm pages/installation/requirements.md
 ```
 
-Then commit and push:
+Run a local preview after staging the final file set, then commit and push:
 
 ```shell
+replicated enterprise-portal preview . --app <your-app-slug>
 git commit -m "Adopt Enterprise Portal template update: support bundle headings and sidebar icons"
 git push
 ```

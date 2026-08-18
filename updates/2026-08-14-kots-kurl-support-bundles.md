@@ -49,6 +49,14 @@ git fetch upstream
 
 The commands below use this update's template commit, `491625dc76b9c661b7a73cb638018c19ddcacfbc`, so later template changes are not pulled in accidentally.
 
+Before checking out template files, make sure you do not have uncommitted work in the target paths:
+
+```shell
+git status --short
+```
+
+Commit or stash any local changes before continuing. The restore command below returns files to `HEAD`; it cannot recover uncommitted edits overwritten by checkout.
+
 ### 3. Compare your support bundle page
 
 This update touches one file, `pages/support/bundles.md`. No pages were added or removed, and `toc.yaml` is unchanged.
@@ -65,7 +73,7 @@ If the diff in step 3 shows nothing you want to keep, take the template's versio
 git checkout 491625dc76b9c661b7a73cb638018c19ddcacfbc -- pages/support/bundles.md
 ```
 
-If the checkout overwrites a file you want to keep, restore it before committing:
+If you started from a clean worktree and decide not to keep the copied file, restore it before committing:
 
 ```shell
 git checkout HEAD -- pages/support/bundles.md
