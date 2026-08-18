@@ -11,13 +11,13 @@ affects:
   - installation
 ---
 
-Two changes below already affect your portal, whether or not you touch your fork: support bundle headings and sidebar icons. The third is a correction worth making to your own copy. Everything after that is a change to the default template, relevant only if you follow it.
+Two changes below already affect your portal, whether or not you touch your content repo: support bundle headings and sidebar icons. The third is a correction worth making to your own copy. Everything after that is a change to the default template, relevant only if you follow it.
 
 ## Add a heading above your support bundle collection tabs
 
 `<LinuxBundles />` and `<HelmBundles />` used to render a `Support Bundle Collection` heading of their own. They no longer do, because a page that already titled the section ended up with two headings for it.
 
-The template shipped without a heading there, relying on the component to supply one. If your fork still looks like that, the collection section is now untitled while the sections below it keep their headings. Add one above the tabs:
+The template shipped without a heading there, relying on the component to supply one. If your content repo still looks like that, the collection section is now untitled while the sections below it keep their headings. Add one above the tabs:
 
 ```mdx
 ## Generate a Bundle
@@ -26,7 +26,7 @@ The template shipped without a heading there, relying on the component to supply
 <Tab title="Linux">
 ```
 
-`<SupportBundleUpload />` also stops rendering its own heading, but the template already labels that section with `## Upload an Existing Bundle`, so most forks need no change there. `<InstancesAndUpdates />` likewise stops rendering its own title and lede, which `pages/updates/instances.md` already supplies.
+`<SupportBundleUpload />` also stops rendering its own heading, but the template already labels that section with `## Upload an Existing Bundle`, so most repos need no change there. `<InstancesAndUpdates />` likewise stops rendering its own title and lede, which `pages/updates/instances.md` already supplies.
 
 ## Check your sidebar section icons
 
@@ -48,7 +48,7 @@ The sidebar was also restyled in the same pass. Section headings sit at full con
 
 A note on the support bundle page stated that bundles "do not include secrets or sensitive data" and can be safely shared. Redaction is spec-driven and best-effort, so that is not a guarantee, and it contradicted the collection instructions that recommend reviewing the archive before uploading. The note has been removed.
 
-If your fork still carries that wording, removing it is worth doing regardless of whether you adopt anything else in this update.
+If your content repo still carries that wording, removing it is worth doing regardless of whether you adopt anything else in this update.
 
 ## Changes to the default template
 
@@ -57,3 +57,90 @@ These affect the template only. Adopt them if you follow the default content; ig
 - **The Requirements page is gone.** `pages/installation/requirements.md` has been removed and its prerequisites now sit directly on the Embedded Cluster installation page, where customers act on them. Inbound links from `pages/home.md`, `pages/support/faq.md`, and `pages/installation/linux.md` were removed with it. If you have customized that page, keep it.
 - **Automation moved to the end of the sidebar.** It is a reference section, not a starting point.
 - **Upload now comes before history on the support bundle page.** `Upload an Existing Bundle` precedes `Uploaded Bundles`, so uploading comes before the list of past uploads.
+
+## Apply this update to your repo
+
+Your content repo was created from the Enterprise Portal template repository, not forked from it. A repo created from a template starts with its own commit history rather than a copy of the template's, so a plain `git pull` or `git merge` from the template will not work. Add the template as an upstream remote, fetch its changes, and adopt selectively.
+
+### 1. Set up the upstream remote (one-time)
+
+Run this once per content repo. If `upstream` already exists, skip to step 2.
+
+```shell
+git remote add upstream https://github.com/replicatedhq/enterprise-portal-content.git
+```
+
+### 2. Fetch the latest template changes
+
+```shell
+git fetch upstream
+```
+
+The commands below use this update's template commit, `f2b916cde77a760123a7895b67ac9b4145815fba`, so later template changes are not pulled in accidentally.
+
+Before checking out template files, make sure you do not have uncommitted work in the target paths:
+
+```shell
+git status --short
+```
+
+Commit or stash any local changes before continuing. The restore command below returns files to `HEAD`; it cannot recover uncommitted edits overwritten by checkout.
+
+### 3. Adopt the content changes
+
+This update touches several files. Adopt them selectively based on your repo's customizations.
+
+**Lower-risk to copy from upstream** — if these files are still close to the template, you can copy them directly and then review the diff:
+
+```shell
+git checkout f2b916cde77a760123a7895b67ac9b4145815fba -- pages/updates/instances.md
+```
+
+If you started from a clean worktree and decide not to keep the copied file, restore it before committing:
+
+```shell
+git checkout HEAD -- pages/updates/instances.md
+```
+
+**Review before copying** — these files are likely customized in vendor repos:
+
+- **`pages/support/bundles.md`** — The Aug 11 template added `## Generate a Bundle`, removed the sensitive-data guarantee note, and moved `Upload an Existing Bundle` before `Uploaded Bundles`. Make those edits by hand if needed. Do not check out the whole file from this update if you already adopted the Aug 14 KOTS/kURL support-bundle update, because the Aug 11 file predates those tabs and entitlement gates.
+- **`pages/support/faq.md`** — The template removed the Requirements accordion. If your content repo still links to the removed requirements page, remove that accordion or update it to point to the prerequisites on the Embedded Cluster installation page.
+- **`pages/installation/linux.md`** — Inbound links to the removed Requirements page were deleted from this file. Check for links such as `requirements` or `installation/requirements`. If present, remove those links or update them to point to the prerequisites on the Embedded Cluster installation page.
+- **`pages/home.md`** — Inbound links to the removed Requirements page were deleted from this file. Check for links such as `requirements` or `installation/requirements`. If present, remove those links or update them.
+- **`toc.yaml`** — The Automation section was moved to the end of the sidebar, and sidebar icons are now opt-in. Compare your file to upstream and decide which changes to keep:
+  ```shell
+  git diff HEAD f2b916cde77a760123a7895b67ac9b4145815fba -- toc.yaml
+  ```
+  Merge the relevant changes manually rather than overwriting the file wholesale.
+
+**A file was removed:** `pages/installation/requirements.md` has been deleted from the template. The old Requirements page contained more detail than the short prerequisite list now shown on the Linux installation page. Before removing it, compare your page with `pages/installation/linux.md` and preserve any vendor-relevant details, such as port, disk, data directory, firewall, or filesystem requirements. Keep the page if you still need that detail; otherwise remove it.
+
+### 4. Review, preview, commit, and push
+
+Inspect the changes, then stage the files you adopted. Adjust the file list if you skipped or moved any of these template files:
+
+```shell
+git diff HEAD
+git add pages/support/bundles.md pages/support/faq.md pages/updates/instances.md
+git add pages/installation/linux.md pages/home.md toc.yaml
+git status --short
+```
+
+If you remove the Requirements page, stage that deletion too before committing:
+
+```shell
+git rm pages/installation/requirements.md
+```
+
+Run a local preview after staging the final file set, then commit and push:
+
+```shell
+replicated enterprise-portal preview . --app <your-app-slug>
+git commit -m "Adopt Enterprise Portal template update: support bundle headings and sidebar icons"
+git push
+```
+
+> **Note:** Replace `<your-app-slug>` with your app's slug. You can find your app's preview command in Enterprise Portal > Content > Preview.
+>
+> If you maintain version branches, apply and push this update on each branch where customers should see it.
