@@ -93,17 +93,18 @@ This update touches several files. Adopt them selectively based on your repo's c
 **Lower-risk to copy from upstream** — if these files are still close to the template, you can copy them directly and then review the diff:
 
 ```shell
-git checkout f2b916cde77a760123a7895b67ac9b4145815fba -- pages/support/bundles.md pages/updates/instances.md
+git checkout f2b916cde77a760123a7895b67ac9b4145815fba -- pages/updates/instances.md
 ```
 
-If you started from a clean worktree and decide not to keep the copied files, restore them before committing:
+If you started from a clean worktree and decide not to keep the copied file, restore it before committing:
 
 ```shell
-git checkout HEAD -- pages/support/bundles.md pages/updates/instances.md
+git checkout HEAD -- pages/updates/instances.md
 ```
 
 **Review before copying** — these files are likely customized in vendor repos:
 
+- **`pages/support/bundles.md`** — The Aug 11 template added `## Generate a Bundle`, removed the sensitive-data guarantee note, and moved `Upload an Existing Bundle` before `Uploaded Bundles`. Make those edits by hand if needed. Do not check out the whole file from this update if you already adopted the Aug 14 KOTS/kURL support-bundle update, because the Aug 11 file predates those tabs and entitlement gates.
 - **`pages/support/faq.md`** — The template removed the Requirements accordion. If your content repo still links to the removed requirements page, remove that accordion or update it to point to the prerequisites on the Embedded Cluster installation page.
 - **`pages/installation/linux.md`** — Inbound links to the removed Requirements page were deleted from this file. Check for links such as `requirements` or `installation/requirements`. If present, remove those links or update them to point to the prerequisites on the Embedded Cluster installation page.
 - **`pages/home.md`** — Inbound links to the removed Requirements page were deleted from this file. Check for links such as `requirements` or `installation/requirements`. If present, remove those links or update them.
