@@ -24,7 +24,6 @@ navigation:
         visible_when:
           entitlements:
             - isKotsInstallEnabled
-            - isAirgapSupported
 
   - title: Instances & Updates
     page: pages/updates/instances.md
