@@ -80,8 +80,8 @@ CLIs.
 
 <InstallStep stepNumber={3} title="Install the KOTS CLI">
 
-Use the KOTS CLI you downloaded from this page. Do not install it with
-`curl https://kots.io/install`.
+For air gap, use the KOTS CLI you downloaded from this page. Do not install it
+with `curl https://kots.io/install` (that path is for online installs only).
 
 The download is a `.tar.gz` (linux amd64 from this page). Extract it, rename
 `kots` to `kubectl-kots`, and move it onto your PATH. The CLI version must match
@@ -98,16 +98,20 @@ kubectl kots version
 <InstallStep stepNumber={4} title="Push Admin Console images">
 
 Use the read-write account. KOTS does not store these credentials. Substitute
-the placeholders before running.
+the placeholders before running. Use the Admin Console bundle file you
+downloaded in step 2 (the filename is usually `kotsadm.tar.gz`, or
+`kotsadm-nominio.tar.gz` for some teams).
 
 <CommandBlock label="example">
-kubectl kots admin-console push-images ./kotsadm.tar.gz REGISTRY_HOST \
+kubectl kots admin-console push-images ./ADMIN_CONSOLE_BUNDLE.tar.gz REGISTRY_HOST \
   --registry-username RW_USERNAME \
   --registry-password RW_PASSWORD
 </CommandBlock>
 
 Substitute (from your registry, not from this page):
 
+- `ADMIN_CONSOLE_BUNDLE.tar.gz` with the Admin Console bundle filename from
+  your downloads.
 - `REGISTRY_HOST` with the registry hostname, or host plus namespace. For
   example `private.registry.host` or `my-registry.example.com/my-namespace`.
 - `RW_USERNAME` and `RW_PASSWORD` with a registry account that can push.
@@ -120,8 +124,13 @@ Use the same `REGISTRY_HOST` as the previous step. Use the **read-only**
 account, not the read-write pair. KOTS stores the read-only credentials as an
 imagePullSecret on Admin Console pods.
 
-`--namespace` is the application slug, not Kubernetes `default`. When prompted,
-set the Admin Console password. That password is not on this page.
+`--namespace` is the application slug, not Kubernetes `default`. Kubernetes
+limits namespace names to 63 characters; if your app slug is longer, pick a
+shorter namespace. When prompted, set the Admin Console password. That password
+is not on this page.
+
+If this customer is not on the `stable` channel, append `/` and the channel
+slug to the app argument (for example `{{app.slug}}/beta`).
 
 <CommandBlock label="example">
 kubectl kots install {{app.slug}} \

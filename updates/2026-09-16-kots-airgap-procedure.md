@@ -17,6 +17,10 @@ The KOTS CLI is installed from the file downloaded on the page, not `curl https:
 
 Do not replace this page with `<KotsAirgapInstallAssets />`. That component is still downloads only. Do not generate `push-images` or `kots install --kotsadm-registry` with customer registry passwords.
 
+This page uses `<WhenNetwork>`. Your portal must be on a release that includes that component (vandoor PR #10535 / the Enterprise Portal build that shipped it). If you adopt the page before that release, the tag is unknown and the page fails to render.
+
+`pages/installation/kurl.md` is unchanged by this update. It remains the downloads-only air gap page and stays gated on `isKurlInstallEnabled` and `isAirgapSupported` in both frontmatter and `toc.yaml`.
+
 ## Wrapping the download component
 
 `<KotsDownloadAssets />` (and `<KurlDownloadAssets />`) take an optional `stepNumber`. The default page wraps the picker in an `<InstallStep>` instead, so the surrounding copy owns the numbers:
@@ -61,6 +65,8 @@ git remote add upstream https://github.com/replicatedhq/enterprise-portal-conten
 git fetch upstream
 ```
 
+The commands below use this update's template commit, `TEMPLATE_COMMIT_SHA`, so later template changes are not pulled in accidentally.
+
 Before checking out template files, make sure you do not have uncommitted work in the target paths:
 
 ```shell
@@ -69,29 +75,34 @@ git status --short
 
 Commit or stash any local changes before continuing. The restore command below returns files to `HEAD`; it cannot recover uncommitted edits overwritten by checkout.
 
-### 3. Compare your KOTS page
+### 3. Compare your KOTS page and nav gate
 
-This update touches `pages/installation/kots.md`. `toc.yaml` is unchanged. The Existing Cluster (KOTS) nav item is still gated on `isKotsInstallEnabled` and `isAirgapSupported`.
+This update touches two files:
+
+- `pages/installation/kots.md` — the online/proxy/air gap install page
+- `toc.yaml` — the Existing Cluster (KOTS) nav item is gated on `isKotsInstallEnabled` **only**. This update removes `isAirgapSupported` from that entry so online-only KOTS customers see the page
 
 ```shell
-git diff HEAD upstream/main -- pages/installation/kots.md
+git diff HEAD TEMPLATE_COMMIT_SHA -- pages/installation/kots.md toc.yaml
 ```
 
-### 4. Take the new page
+### 4. Take the new page and nav gate
 
-If you have not customized that file, take the template version:
+If you have not customized those files, take the template versions:
 
 ```shell
-git checkout upstream/main -- pages/installation/kots.md
+git checkout TEMPLATE_COMMIT_SHA -- pages/installation/kots.md toc.yaml
 ```
 
-If you started from a clean worktree and decide not to keep the copied file, restore it before committing:
+If you started from a clean worktree and decide not to keep the copied files, restore them before committing:
 
 ```shell
-git checkout HEAD -- pages/installation/kots.md
+git checkout HEAD -- pages/installation/kots.md toc.yaml
 ```
 
 If the diff shows copy you want to keep (registry naming, network requirements, support contact), keep your surrounding steps and adopt the procedure: two credential pairs, downloaded CLI rather than `curl kots.io`, `--namespace` as the app slug, Admin Console for license and `.airgap`. Leave `<KotsDownloadAssets />` in place so customers can still pick a version. Put your copy in `<InstallStep>` blocks above and below it.
+
+If you keep a customized `toc.yaml`, still remove `isAirgapSupported` from the Existing Cluster (KOTS) nav entry. Leaving that gate in place hides the page from online-only KOTS customers — the population this update exists to serve — and they get no nav item and a 404.
 
 ### 5. Review, preview, commit, and push
 
@@ -100,7 +111,7 @@ Inspect the changes, run a local preview, then commit and push. Use `git diff HE
 ```shell
 git diff HEAD
 replicated enterprise-portal preview . --app <your-app-slug>
-git add pages/installation/kots.md
+git add pages/installation/kots.md toc.yaml
 git commit -m "Adopt Enterprise Portal template update: KOTS air gap install procedure"
 git push
 ```
