@@ -65,7 +65,7 @@ git remote add upstream https://github.com/replicatedhq/enterprise-portal-conten
 git fetch upstream
 ```
 
-The commands below use this update's template commit, `TEMPLATE_COMMIT_SHA`, so later template changes are not pulled in accidentally.
+The commands below use this update's template commit, `0e1078b2855ff181da7b635821d92855208aa091`, so later template changes are not pulled in accidentally.
 
 Before checking out template files, make sure you do not have uncommitted work in the target paths:
 
@@ -83,7 +83,7 @@ This update touches two files:
 - `toc.yaml` — the Existing Cluster (KOTS) nav item is gated on `isKotsInstallEnabled` **only**. This update removes `isAirgapSupported` from that entry so online-only KOTS customers see the page
 
 ```shell
-git diff HEAD TEMPLATE_COMMIT_SHA -- pages/installation/kots.md toc.yaml
+git diff HEAD 0e1078b2855ff181da7b635821d92855208aa091 -- pages/installation/kots.md toc.yaml
 ```
 
 ### 4. Take the new page and nav gate
@@ -91,7 +91,7 @@ git diff HEAD TEMPLATE_COMMIT_SHA -- pages/installation/kots.md toc.yaml
 If you have not customized those files, take the template versions:
 
 ```shell
-git checkout TEMPLATE_COMMIT_SHA -- pages/installation/kots.md toc.yaml
+git checkout 0e1078b2855ff181da7b635821d92855208aa091 -- pages/installation/kots.md toc.yaml
 ```
 
 If you started from a clean worktree and decide not to keep the copied files, restore them before committing:
