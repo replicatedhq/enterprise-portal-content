@@ -14,6 +14,8 @@ install steps update for online, proxy, or air gap.
 ## Requirements
 
 - Kubernetes cluster with `kubectl` access
+- If you install air gap, select **No outbound requests allowed (air gap)**
+  under Configuration. Extra registry requirements for that path appear below.
 
 <WhenNetwork mode="airgap">
 
@@ -48,6 +50,12 @@ selections. Air gap uses the procedure on this page.
 
 ## Install
 
+<InstallStep stepNumber={1} title="Download your license">
+
+<LicenseDownload />
+
+</InstallStep>
+
 <WhenNetwork mode="online,proxy">
 
 <Note>
@@ -56,17 +64,11 @@ switch installations or rename your instance, the commands will update
 automatically.
 </Note>
 
-<KotsInstallAssets />
+<KotsInstallAssets stepNumber={2} />
 
 </WhenNetwork>
 
 <WhenNetwork mode="airgap">
-
-<InstallStep stepNumber={1} title="Download your license">
-
-<LicenseDownload />
-
-</InstallStep>
 
 <InstallStep stepNumber={2} title="Download the installation assets">
 
@@ -152,7 +154,7 @@ Substitute (from your registry, not from this page):
 <InstallStep stepNumber={6} title="Upload the license and air gap bundle">
 
 When install finishes it prints a port-forward to the Admin Console. Open
-http://localhost:8800 and log in with the password you set.
+`http://localhost:8800` and log in with the password you set.
 
 If you need to reopen the port-forward:
 
