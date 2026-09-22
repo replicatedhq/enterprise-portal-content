@@ -9,7 +9,7 @@ affects:
   - kots
 ---
 
-Online KOTS install still uses generated `curl https://kots.io/install` plus `kubectl kots install`. That does not offer Preflight or Support Bundle CLIs. The default page now mounts `<KotsDownloadAssets cliOnly={true} />` on the online/proxy branch so those workstation CLIs (and a version-pinned KOTS CLI) are available without showing the Admin Console bundle or the application air gap bundle.
+Some online customers cannot run `curl https://kots.io/install`. The default page now mounts `<KotsDownloadAssets cliOnly={true} />` on the online/proxy branch so they can download the KOTS CLI (and Preflight / Support Bundle CLIs) from the portal, then run `kubectl kots install`. The generated curl command remains step 2 for environments that can use it. This list does not include the Admin Console bundle or the application air gap bundle.
 
 The air gap branch is unchanged: full `<KotsDownloadAssets />` inside `<WhenNetwork mode="airgap">`. Do not move that tag out of the wrap. `cliOnly` keys off the mount, so a dual-entitled customer who selected **online** does not get air-gap installer files in that flow.
 

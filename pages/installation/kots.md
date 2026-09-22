@@ -68,9 +68,10 @@ automatically.
 
 ### Workstation CLIs
 
-Step 2 already installs the KOTS CLI. If you also want a version-pinned KOTS CLI,
-Preflight CLI, or Support Bundle CLI for this release, download them here. This
-list does not include the Admin Console bundle or the application air gap bundle.
+If you cannot run `curl https://kots.io/install` (step 2), download the KOTS CLI
+here for this release, then install with `kubectl kots install`. Preflight CLI
+and Support Bundle CLI are here too. This list does not include the Admin
+Console bundle or the application air gap bundle.
 
 <KotsDownloadAssets cliOnly={true} />
 
