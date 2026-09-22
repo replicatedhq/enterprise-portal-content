@@ -66,6 +66,16 @@ automatically.
 
 <KotsInstallAssets stepNumber={2} />
 
+<InstallStep stepNumber={3} title="Optional workstation CLIs">
+
+The install command above installs the KOTS CLI. Download a version-pinned KOTS
+CLI, Preflight CLI, or Support Bundle CLI here if you need them. This list does
+not include the Admin Console bundle or the application air gap bundle.
+
+<KotsDownloadAssets cliOnly={true} />
+
+</InstallStep>
+
 </WhenNetwork>
 
 <WhenNetwork mode="airgap">
