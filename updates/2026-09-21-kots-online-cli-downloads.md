@@ -31,12 +31,12 @@ git remote add upstream https://github.com/replicatedhq/enterprise-portal-conten
 git fetch upstream
 ```
 
-The commands below use this update's template commit, `TEMPLATE_SHA`.
+The commands below use this update's template commit, `d361634b194cbf131fb01dc49585817646435739`.
 
 ### 3. Compare your KOTS page
 
 ```shell
-git diff HEAD TEMPLATE_SHA -- pages/installation/kots.md
+git diff HEAD d361634b194cbf131fb01dc49585817646435739 -- pages/installation/kots.md
 ```
 
 ### 4. Take the new page
@@ -44,7 +44,7 @@ git diff HEAD TEMPLATE_SHA -- pages/installation/kots.md
 If you have not customized that file:
 
 ```shell
-git checkout TEMPLATE_SHA -- pages/installation/kots.md
+git checkout d361634b194cbf131fb01dc49585817646435739 -- pages/installation/kots.md
 ```
 
 If you keep a customized page, add `<KotsDownloadAssets cliOnly={true} />` on the online/proxy `<WhenNetwork>` branch next to `<KotsInstallAssets />`. Leave the air-gap `<KotsDownloadAssets />` inside `<WhenNetwork mode="airgap">`. Do not unwrap it.
