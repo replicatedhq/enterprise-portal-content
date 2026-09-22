@@ -68,10 +68,10 @@ automatically.
 
 <InstallStep stepNumber={3} title="Workstation CLIs">
 
-Step 2 already installs the KOTS CLI via `curl https://kots.io/install`. Download
-a version-pinned KOTS CLI, Preflight CLI, or Support Bundle CLI here if you need
-them. This list does not include the Admin Console bundle or the application
-air gap bundle.
+Step 2 already installs the KOTS CLI. These are workstation downloads for the
+version selected under Configuration: a pinned KOTS CLI, Preflight CLI, and
+Support Bundle CLI. This list does not include the Admin Console bundle or the
+application air gap bundle.
 
 <KotsDownloadAssets cliOnly={true} />
 
