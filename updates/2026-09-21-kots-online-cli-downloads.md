@@ -1,7 +1,7 @@
 ---
 id: 2026-09-21-kots-online-cli-downloads
 title: Workstation CLIs on the default KOTS online page
-published_at: 2026-09-22T19:00:00Z
+published_at: 2026-09-22T19:59:14Z
 impact: recommended
 summary: The default Existing Cluster (KOTS) online and proxy path includes a CLI-only download list (KOTS, Preflight, Support Bundle) after the generated install commands. Air gap downloads stay in the air gap branch. Do not unwrap the air gap tag. Adopt this page only after the portal build that supports cliOnly (vandoor #10549).
 affects:
@@ -17,7 +17,7 @@ Do not adopt this page until the portal lists `cliOnly` on `KotsDownloadAssets` 
 
 ## Apply this update to your repo
 
-Your content repo was created from the Enterprise Portal template repository, not forked from it. Add the template as `upstream` if it is not already there, fetch, then take `pages/installation/kots.md` from this update's template commit (filled in after this note lands). `toc.yaml` is unchanged.
+Your content repo was created from the Enterprise Portal template repository, not forked from it. Add the template as `upstream` if it is not already there, fetch, then take `pages/installation/kots.md` from this update's template commit. `toc.yaml` is unchanged.
 
 ### 1. Set up the upstream remote (one-time)
 
