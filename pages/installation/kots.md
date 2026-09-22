@@ -71,8 +71,8 @@ automatically.
 Preflight CLI and Support Bundle CLI are optional workstation tools for
 validating requirements before install and collecting support bundles afterward.
 If you cannot run `curl https://kots.io/install` in step 2, download the KOTS
-CLI here instead. Extract it, move `kubectl-kots` onto your PATH, then run just
-the `kubectl kots install` line from step 2. This list does not include the
+CLI here instead. Extract it, rename `kots` to `kubectl-kots`, and move it onto
+your PATH, then run just the `kubectl kots install` line from step 2. This list does not include the
 Admin Console bundle or the application air gap bundle.
 
 <KotsDownloadAssets cliOnly={true} />
