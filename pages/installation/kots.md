@@ -68,10 +68,12 @@ automatically.
 
 ### Workstation CLIs
 
-If you cannot run `curl https://kots.io/install` (step 2), download the KOTS CLI
-here for this release, then install with `kubectl kots install`. Preflight CLI
-and Support Bundle CLI are here too. This list does not include the Admin
-Console bundle or the application air gap bundle.
+Preflight CLI and Support Bundle CLI are optional workstation tools for
+validating requirements before install and collecting support bundles afterward.
+If you cannot run `curl https://kots.io/install` in step 2, download the KOTS
+CLI here instead. Extract it, move `kubectl-kots` onto your PATH, then run just
+the `kubectl kots install` line from step 2. This list does not include the
+Admin Console bundle or the application air gap bundle.
 
 <KotsDownloadAssets cliOnly={true} />
 
