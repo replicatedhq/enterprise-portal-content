@@ -66,16 +66,13 @@ automatically.
 
 <KotsInstallAssets stepNumber={2} />
 
-<InstallStep stepNumber={3} title="Workstation CLIs">
+### Workstation CLIs
 
-Step 2 already installs the KOTS CLI. These are workstation downloads for the
-version selected under Configuration: a pinned KOTS CLI, Preflight CLI, and
-Support Bundle CLI. This list does not include the Admin Console bundle or the
-application air gap bundle.
+Step 2 already installs the KOTS CLI. If you also want a version-pinned KOTS CLI,
+Preflight CLI, or Support Bundle CLI for this release, download them here. This
+list does not include the Admin Console bundle or the application air gap bundle.
 
 <KotsDownloadAssets cliOnly={true} />
-
-</InstallStep>
 
 </WhenNetwork>
 
