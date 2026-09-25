@@ -26,11 +26,12 @@ Enterprise Portal does not track its progress or completion.
 
 ## Upgrade the application online or through a proxy
 
-1. Open the instance's Admin Console using the access method provided by your
-   vendor or administrator.
-2. Open **Version History** and select the same target release you chose in
-   Enterprise Portal.
-3. Review the release notes, configuration changes, and preflight checks.
+1. Version History is a tab in the Admin Console, not a link in Enterprise
+   Portal. If you need to reopen the Admin Console, run
+   `kubectl kots admin-console -n {{app.slug}}`.
+2. Open the **Version History** tab and click **Check for updates**.
+3. Select the same target release you chose in Enterprise Portal. Review the
+   release notes, configuration changes, and preflight checks.
 4. Click **Deploy** when you are ready to upgrade the application.
 5. Monitor the deployment in Admin Console. Contact your vendor's support team
    if the release is unavailable or a check fails.
