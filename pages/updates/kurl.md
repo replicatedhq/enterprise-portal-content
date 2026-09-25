@@ -42,7 +42,8 @@ Enterprise Portal does not track its progress or completion.
 1. In [Instances & Updates](/updates/instances), select the target release and
    download its **Application air gap bundle**. Move the file into the
    air-gapped environment using your approved transfer process.
-2. Open the instance's Admin Console, then open **Version History**.
+2. If you need to reopen the Admin Console, run `kubectl kots admin-console -n {{app.slug}}`.
+   Then open **Version History**.
 3. Upload the application `.airgap` bundle. If your environment uses a private
    registry, follow your vendor's registry-specific preparation instructions.
 4. Select the uploaded release, review configuration changes and preflight
