@@ -27,6 +27,17 @@ navigation:
 
   - title: Instances & Updates
     page: pages/updates/instances.md
+    items:
+      - title: Upgrade KOTS Applications
+        page: pages/updates/kots.md
+        visible_when:
+          entitlements:
+            - isKotsInstallEnabled
+      - title: Upgrade kURL Applications
+        page: pages/updates/kurl.md
+        visible_when:
+          entitlements:
+            - isKurlInstallEnabled
 
   - title: Security
     page: pages/security.md
