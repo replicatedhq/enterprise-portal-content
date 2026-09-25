@@ -26,7 +26,7 @@ Enterprise Portal does not track its progress or completion.
 
 ## Upgrade an online or proxy instance
 
-1. Reopen the Admin Console by running
+1. Reopen the KOTS Admin Console by running
    `kubectl kots admin-console -n {{app.slug}}`.
 2. Open the **Version History** tab and click **Check for updates**.
 3. Select the same target release you chose in Enterprise Portal. Review the
