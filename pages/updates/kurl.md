@@ -24,7 +24,7 @@ Enterprise Portal does not track its progress or completion.
 3. Review the available releases and select the intended target. Confirm in
    Admin Console that the release is available before starting the deployment.
 
-## Upgrade the application online
+## Upgrade the application online or through a proxy
 
 1. Open the instance's Admin Console using the access method provided by your
    vendor or administrator.
