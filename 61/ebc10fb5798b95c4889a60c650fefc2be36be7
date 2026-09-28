@@ -1,0 +1,16 @@
+pages/updates/kurl.md
+  h_a187b1a47af8c8 25-27,37,46-48
+toc.yaml
+  h_a187b1a47af8c8 30-31
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "61ebc10fb5798b95c4889a60c650fefc2be36be7",
+  "prompts": {},
+  "humans": {
+    "h_a187b1a47af8c8": {
+      "author": "Lawrence Lee Keener <lawrence@replicated.com>"
+    }
+  }
+}
