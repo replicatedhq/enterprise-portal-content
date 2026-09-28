@@ -1,0 +1,14 @@
+updates/2026-09-28-kots-kurl-upgrade-guides.md
+  h_a187b1a47af8c8 1-100
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "c9779aaa48219acfde671fde46e733d82951ff28",
+  "prompts": {},
+  "humans": {
+    "h_a187b1a47af8c8": {
+      "author": "Lawrence Lee Keener <lawrence@replicated.com>"
+    }
+  }
+}
