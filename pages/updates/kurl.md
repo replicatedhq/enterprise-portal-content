@@ -34,8 +34,6 @@ Enterprise Portal does not track its progress or completion.
 5. Monitor the deployment in Admin Console. Contact your vendor's support team
    if the release is unavailable or a check fails.
 
-Do not rerun `install.sh` for an application release.
-
 {{#if entitlements.isAirgapSupported}}
 
 ## Upgrade the application in an air gap environment
