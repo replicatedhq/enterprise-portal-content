@@ -12,11 +12,6 @@ Portal helps you choose a target release and, for air gap instances, download
 the application bundle. The deployment itself happens in Admin Console, and
 Enterprise Portal does not track its progress or completion.
 
-> **Vendor customization:** Replace the generic Admin Console access, private
-> registry, and support instructions below with the details for your
-> environment. You can also change or remove this page and its link from the
-> Instances & Updates panel.
-
 ## Choose the target release
 
 1. Return to [Instances & Updates](/updates/instances).
@@ -36,14 +31,6 @@ Enterprise Portal does not track its progress or completion.
 4. Click **Deploy** when you are ready to upgrade the application.
 5. Monitor the deployment in Admin Console. Contact your vendor's support team
    if the release is unavailable or a check fails.
-
-`kubectl kots upstream upgrade` checks for updates, and the customer still
-deploys in the Admin Console. Document that command here only when every
-customer uses the same namespace. Remove it otherwise.
-
-```
-kubectl kots upstream upgrade --namespace {{app.slug}}
-```
 
 {{#if entitlements.isAirgapSupported}}
 
