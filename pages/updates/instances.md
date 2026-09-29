@@ -4,6 +4,9 @@ title: Instances & Updates
 
 # Instances & Updates
 
-Review deployed instances and upgrade them to the latest release, currently **{{release.version}}**. Click an instance with an available update to see upgrade instructions inline.
+Review deployed instances and upgrade them to the latest release, currently **{{release.version}}**. Open an instance with an available update, or the current release, to see the guidance inline.
 
-<InstancesAndUpdates />
+<InstancesAndUpdates
+  kotsGuideHref="/updates/kots"
+  kurlGuideHref="/updates/kurl"
+/>
