@@ -1,0 +1,14 @@
+updates/2026-08-11-navigation-and-heading-cleanup.md
+  h_a187b1a47af8c8 6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "fe532d4afce486d1cfcdf9476a0b744e73308c51",
+  "prompts": {},
+  "humans": {
+    "h_a187b1a47af8c8": {
+      "author": "Lawrence Lee Keener <lawrence@replicated.com>"
+    }
+  }
+}
