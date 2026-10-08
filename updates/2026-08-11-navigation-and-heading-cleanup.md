@@ -3,7 +3,7 @@ id: 2026-08-11-navigation-and-heading-cleanup
 title: Support bundle headings and sidebar icons
 published_at: 2026-08-11T00:00:00Z
 impact: recommended
-summary: Two component changes affect every portal: support bundle sections no longer carry their own headings, and sidebar section icons are now opt-in rather than defaulted. Both may need a small change to your content. The default template also drops the Requirements page and reorders some sections.
+summary: "Two component changes affect every portal: support bundle sections no longer carry their own headings, and sidebar section icons are now opt-in rather than defaulted. Both may need a small change to your content. The default template also drops the Requirements page and reorders some sections."
 affects:
   - support bundles
   - sidebar
