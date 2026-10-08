@@ -1,0 +1,20 @@
+.github/workflows/template-updates.yml
+  h_a187b1a47af8c8 1-20
+scripts/check-template-updates.go
+  h_a187b1a47af8c8 1-109
+scripts/go.mod
+  h_a187b1a47af8c8 1-5
+scripts/go.sum
+  h_a187b1a47af8c8 1-4
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "23c92d99c938f619e64155dbc5e8617fea364d0c",
+  "prompts": {},
+  "humans": {
+    "h_a187b1a47af8c8": {
+      "author": "Lawrence Lee Keener <lawrence@replicated.com>"
+    }
+  }
+}
