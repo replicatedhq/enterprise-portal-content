@@ -1,0 +1,14 @@
+updates/2026-10-08-force-parse-error.md
+  h_a187b1a47af8c8 1-11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "f796bddbcc1cc953594cc199fe8dacc0efb804ff",
+  "prompts": {},
+  "humans": {
+    "h_a187b1a47af8c8": {
+      "author": "Lawrence Lee Keener <lawrence@replicated.com>"
+    }
+  }
+}
