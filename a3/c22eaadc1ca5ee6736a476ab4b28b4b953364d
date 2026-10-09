@@ -1,0 +1,18 @@
+pages/updates/kots.md
+  h_a187b1a47af8c8 24,41
+pages/updates/kurl.md
+  h_a187b1a47af8c8 24,41-42
+updates/2026-10-09-admin-console-namespace.md
+  h_a187b1a47af8c8 1-77
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "a3c22eaadc1ca5ee6736a476ab4b28b4b953364d",
+  "prompts": {},
+  "humans": {
+    "h_a187b1a47af8c8": {
+      "author": "Lawrence Lee Keener <lawrence@replicated.com>"
+    }
+  }
+}
