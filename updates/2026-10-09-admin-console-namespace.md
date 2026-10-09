@@ -46,12 +46,12 @@ git remote add upstream https://github.com/replicatedhq/enterprise-portal-conten
 git fetch upstream
 ```
 
-The commands below use this update's template commit, `TEMPLATE_COMMIT`.
+The commands below use this update's template commit, `a3c22eaadc1ca5ee6736a476ab4b28b4b953364d`.
 
 ### 3. Compare your pages
 
 ```shell
-git diff HEAD TEMPLATE_COMMIT -- pages/updates/kots.md pages/updates/kurl.md
+git diff HEAD a3c22eaadc1ca5ee6736a476ab4b28b4b953364d -- pages/updates/kots.md pages/updates/kurl.md
 ```
 
 ### 4. Take the new pages
@@ -59,7 +59,7 @@ git diff HEAD TEMPLATE_COMMIT -- pages/updates/kots.md pages/updates/kurl.md
 If you have not customized the upgrade guides:
 
 ```shell
-git checkout TEMPLATE_COMMIT -- pages/updates/kots.md pages/updates/kurl.md
+git checkout a3c22eaadc1ca5ee6736a476ab4b28b4b953364d -- pages/updates/kots.md pages/updates/kurl.md
 ```
 
 If you keep customized guides, replace the hardcoded `kubectl kots admin-console --namespace` lines with `<AdminConsoleCommand />` as in the template. Add the same `namespace` on `<InstancesAndUpdates />` in `pages/updates/instances.md` and on each `<AdminConsoleCommand />` when the Admin Console is not in `default` (kURL) or the app slug (KOTS).
