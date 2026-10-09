@@ -21,9 +21,7 @@ Enterprise Portal does not track its progress or completion.
 
 ## Upgrade an online or proxy instance
 
-1. Reopen the KOTS Admin Console by running
-   `kubectl kots admin-console --namespace {{app.slug}}`.
-   If you installed the Admin Console in a different namespace, use that namespace instead.
+1. <AdminConsoleCommand installType="kots" lead="Reopen the KOTS Admin Console by running" />
 2. Open the **Version History** tab. The Admin Console checks for new versions
    every four hours by default, so the target release may already be listed.
    If it is not listed, click **Check for updates**.
@@ -40,8 +38,7 @@ Enterprise Portal does not track its progress or completion.
 1. In [Instances & Updates](/updates/instances), select the target release and
    download its **Application air gap bundle**. Move the file into the
    air-gapped environment using your approved transfer process.
-2. If you need to reopen the Admin Console, run `kubectl kots admin-console --namespace {{app.slug}}`.
-   If you installed the Admin Console in a different namespace, use that namespace instead.
+2. <AdminConsoleCommand installType="kots" lead="If you need to reopen the Admin Console, run" />
    Then open **Version History**.
 3. Upload the application `.airgap` bundle. If your environment uses a private
    registry, follow your vendor's registry-specific preparation instructions.
