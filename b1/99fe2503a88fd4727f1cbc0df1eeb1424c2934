@@ -1,0 +1,14 @@
+updates/2026-10-09-admin-console-namespace.md
+  h_a187b1a47af8c8 49,54,62
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b199fe2503a88fd4727f1cbc0df1eeb1424c2934",
+  "prompts": {},
+  "humans": {
+    "h_a187b1a47af8c8": {
+      "author": "Lawrence Lee Keener <lawrence@replicated.com>"
+    }
+  }
+}
