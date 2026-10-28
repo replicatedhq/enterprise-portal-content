@@ -1,48 +1,40 @@
 ---
 id: 2026-10-22-option-selector-and-tabs
-title: OptionSelector and Tabs
-published_at: 2026-10-22T18:00:00Z
+title: Tabs groupId and OptionSelector
+published_at: 2026-10-28T18:00:00Z
 impact: optional
-summary: "OptionSelector remembers a choice for the browser session. Tabs stay local to the page. The default home and support bundle pages already follow that split."
+summary: "The default home page uses Tabs with groupId for the Linux and Helm quick links. OptionSelector stays supported. Existing repos do not need to change."
 affects:
   - home
   - support bundles
 ---
 
-`<OptionSelector>` and `<Tabs>` are both valid. They do different jobs.
+`<Tabs>` is the component to use when a customer should keep a tab after a reload in the same session. Pass the same `groupId` on every `<Tabs>` that should restore that choice. Logout and switching teams clear it. Omit `groupId` when the tabs are local to one page.
 
-Use `<OptionSelector>` when the customer should keep a named choice after a reload in the same session. Pass `storageKey` so every selector on the page with that key restores the same saved value. Logout and switching teams clear it. The default home page uses this for Linux / Helm quick links:
+The default home page uses this for the Linux / Helm quick links:
 
 ```md
-<OptionSelector label="Install Method" defaultOption="Linux" storageKey="install-method">
-<Option value="Linux">
+<Tabs groupId="install-method">
+<Tab title="Linux">
 - [Linux Installation](/installation/linux)
-</Option>
-<Option value="Helm">
-- [Helm Installation](/installation/helm)
-</Option>
-</OptionSelector>
-```
-
-Use `<Tabs>` when the sections are local to that page. Tabs do not persist and do not share a choice with `<OptionSelector>`. The default support bundle page wraps each method's collection component in entitlement-gated tabs. Keep that pattern. Do not put `storageKey="install-method"` on those tabs, and do not convert them to `<OptionSelector>` to share the home page's Linux / Helm picker. The titles and the set of methods are not the same choice.
-
-```md
-<Tabs>
-{{#if entitlements.isEmbeddedClusterDownloadEnabled}}
-<Tab title="Linux (Embedded Cluster)">
-
-<LinuxBundles />
-
 </Tab>
-{{/if}}
+<Tab title="Helm">
+- [Helm Installation](/installation/helm)
+</Tab>
 </Tabs>
 ```
 
-The persist fix for `<OptionSelector>` ships in the portal. Existing content repos do not need to copy pages for this update. A repo created from the template already has the default home and support bundle pages above.
+`<OptionSelector>` stays supported. It keeps its current look. `storageKey` is the same session key as `groupId`, so an existing selector keeps working, including two selectors on one page that share a `storageKey`. New home pages should use `<Tabs>` with `groupId`. There is no removal date for `<OptionSelector>`.
+
+The default support bundle page stays on `<Tabs>` with no `groupId`. Those titles are entitlement-gated, and they are not the home page's Linux / Helm choice. Do not add `groupId="install-method"` to those tabs.
+
+A repo created from the template after this update already has the home page above. An existing repo keeps `<OptionSelector>` until you change that page. No page checkout is required.
+
+`groupId` is ignored on a portal build that does not include it yet. Wait for that build before you copy the home page markup into a repo customers are using.
 
 ## Apply this update to your repo
 
-No page checkout is required unless you want to copy the default home or support bundle pages from the template. If you already forked those files, keep `<OptionSelector>` on home and `<Tabs>` on support bundles unless your own content has a different split.
+No page checkout is required. Copy the home page only if you want an existing repo to match the new template.
 
 ### 1. Set up the upstream remote (one-time)
 
@@ -58,13 +50,13 @@ git fetch upstream
 
 ### 3. Review, preview, commit, and push
 
-Only if you are taking template pages:
+Only if you are replacing the home page selector:
 
 ```shell
 git diff HEAD
 replicated enterprise-portal preview . --app <your-app-slug>
-git add pages/home.md pages/support/bundles.md
-git commit -m "Adopt Enterprise Portal template update: OptionSelector and Tabs"
+git add pages/home.md
+git commit -m "Adopt Enterprise Portal template update: Tabs groupId on home"
 git push
 ```
 
