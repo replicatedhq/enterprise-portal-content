@@ -1,0 +1,19 @@
+updates/2026-10-22-option-selector-and-tabs.md
+  s_5b7f11d24cf161::t_5ab9bb70a3584d 3-4,6,12,14,17-18,20-21,23-24,27,29,31,33,37,53,58-59
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "15315d04d9a5e7ba2cc218c3bf5cc1307d8940e9",
+  "prompts": {},
+  "sessions": {
+    "s_5b7f11d24cf161": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "01a17ed8-c3e1-7f03-a59f-0569d9cf7f84",
+        "model": "unknown"
+      },
+      "human_author": "Lawrence Lee Keener <lawrence@replicated.com>"
+    }
+  }
+}
