@@ -9,7 +9,7 @@ affects:
   - support bundles
 ---
 
-`<Tabs>` is the component to use when a customer should keep a tab after a reload in the same session. Pass the same `groupId` on every `<Tabs>` that should restore that choice. Logout and switching teams clear it. Omit `groupId` when the tabs are local to one page.
+`<Tabs>` is the component to use when a customer should keep a tab for the browser session. Pass the same `groupId` on every `<Tabs>` that should share that choice. A click selects that title on every other `<Tabs>` with that `groupId` on the page, and the next page restores it. The match is the tab title. Logout and switching teams clear it. Omit `groupId` when the tabs are local to one page.
 
 The default home page uses this for the Linux / Helm quick links:
 
