@@ -36,8 +36,8 @@ Use the sidebar navigation on the left to explore available documentation sectio
 
 ## Quick Links
 
-<OptionSelector label="Install Method" defaultOption="Linux" storageKey="install-method">
-<Option value="Linux">
+<Tabs groupId="install-method">
+<Tab title="Linux">
 
 {{#if entitlements.isEmbeddedClusterDownloadEnabled}}
 - [Linux Installation](installation/linux)
@@ -47,8 +47,8 @@ Use the sidebar navigation on the left to explore available documentation sectio
 - [Support Bundles](support/bundles)
 - [FAQ](support/faq)
 
-</Option>
-<Option value="Helm">
+</Tab>
+<Tab title="Helm">
 
 {{#if entitlements.isHelmInstallEnabled}}
 - [Helm Installation](installation/helm)
@@ -58,5 +58,5 @@ Use the sidebar navigation on the left to explore available documentation sectio
 - [Support Bundles](support/bundles)
 - [FAQ](support/faq)
 
-</Option>
-</OptionSelector>
+</Tab>
+</Tabs>
