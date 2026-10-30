@@ -1,0 +1,14 @@
+updates/2026-10-22-option-selector-and-tabs.md
+  h_a187b1a47af8c8 11,13,18-26,29-37,52,66-82,84
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "fb9900f0c1f81c2e1d2386bd2c9923461d452013",
+  "prompts": {},
+  "humans": {
+    "h_a187b1a47af8c8": {
+      "author": "Lawrence Lee Keener <lawrence@replicated.com>"
+    }
+  }
+}
