@@ -1,0 +1,25 @@
+.agents/skills/doomer-review/SKILL.md
+  s_37e090b26c0d26::t_931e5ee35fd5fe 1-197
+AGENTS.md
+  s_37e090b26c0d26::t_931e5ee35fd5fe 1-10
+.claude/skills/doomer-review/SKILL.md
+  s_37e090b26c0d26::t_931e5ee35fd5fe 1-197
+CLAUDE.md
+  s_37e090b26c0d26::t_931e5ee35fd5fe 1-12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "463f438dc38681d0b90ff6189bbbb09cf7e75a53",
+  "prompts": {},
+  "sessions": {
+    "s_37e090b26c0d26": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1c5ef-8329-76d1-8ac7-4655179a4054",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Lawrence Lee Keener <lawrence@replicated.com>"
+    }
+  }
+}
